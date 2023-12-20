@@ -6,11 +6,13 @@
     </form>
     <ul>
         <li v-for="(todo, index) in todos" v-bind:key="todo.task">
-            <input type="checkbox">
-            {{ todo.task }}
+            <input type="checkbox" v-model="todo.done">
+            <span v-if="todo.done"><s>{{ todo.task }}</s></span>
+            <span v-else>{{ todo.task }}</span>
             <button v-on:click="deleteClicked(index)">Delete</button>
         </li>
     </ul>
+    {{ todos }}
 </template>
 
 <script setup lang="ts">
@@ -23,7 +25,7 @@ class Todo {
     }
 }
 
-const todos = useState<Todo[]>("todos", (): Todo[] => {
+const todos = useState<Todo[]>("todos", () => {
     return []
 })
 
