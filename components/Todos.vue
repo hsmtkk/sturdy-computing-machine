@@ -35,6 +35,7 @@ const newTodoEmpty: Ref<boolean> = computed((): boolean => {
 
 const addClicked = () => {
     todos.value.push(new Todo(newTodo.value))
+    newTodo.value = ""
 }
 
 const deleteClicked = (index: number) => {
