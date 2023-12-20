@@ -12,7 +12,6 @@
             <button v-on:click="deleteClicked(index)">Delete</button>
         </li>
     </ul>
-    {{ todos }}
 </template>
 
 <script setup lang="ts">
@@ -44,3 +43,9 @@ const deleteClicked = (index: number) => {
     todos.value.splice(index, 1)
 }
 </script>
+
+<style scoped>
+ul {
+    list-style: none;
+}
+</style>
