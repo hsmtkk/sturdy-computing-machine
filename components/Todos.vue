@@ -7,8 +7,7 @@
     <ul>
         <li v-for="(todo, index) in todos" v-bind:key="todo.task">
             <input type="checkbox" v-model="todo.done">
-            <span v-if="todo.done"><s>{{ todo.task }}</s></span>
-            <span v-else>{{ todo.task }}</span>
+            <span v-bind:class="{ 'done': todo.done }">{{ todo.task }}</span>
             <button v-on:click="deleteClicked(index)">Delete</button>
         </li>
     </ul>
@@ -47,5 +46,9 @@ const deleteClicked = (index: number) => {
 <style scoped>
 ul {
     list-style: none;
+}
+
+li>span.done {
+    text-decoration: line-through;
 }
 </style>
